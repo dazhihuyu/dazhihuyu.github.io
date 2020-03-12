@@ -1,26 +1,26 @@
 
-  
-    <!DOCTYPE HTML>
+ <!DOCTYPE HTML>
 <html >
 <head>
   <meta charset="UTF-8">
   
-    <title>About Me | 万安</title>
+    <title>Linux运维学习_centos7 安装JAVA | 万安</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="Jammy">
     
 
     
-    <meta name="description" content="我是大学生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About Me">
-<meta property="og:url" content="http://dazhihuyu.xjp89.top/about/me.html">
+    <meta name="description" content="​    一直做开发，之前都是使用Tomcat部署，大部分情况都是在windows环境下，现在互联网发展太快，都是需要后台在阿里云等云厂商的服务器下进行部署，第一步就是安装JDK环境 1.查看系统是否安装了jdk； 1rpm -qa | grep jdk  2.下载Linux版本的jdk 下载网站：https:&#x2F;&#x2F;www.oracle.com&#x2F;java&#x2F;technologies&#x2F;javase-jd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux运维学习_centos7 安装JAVA">
+<meta property="og:url" content="http://dazhihuyu.xjp89.top/2020/03/12/Linux%E8%BF%90%E7%BB%B4%E5%AD%A6%E4%B9%A0-centos7-%E5%AE%89%E8%A3%85JAVA/index.html">
 <meta property="og:site_name" content="万安">
-<meta property="og:description" content="我是大学生">
-<meta property="article:published_time" content="2019-12-27T16:27:53.000Z">
-<meta property="article:modified_time" content="2019-12-27T16:29:21.625Z">
+<meta property="og:description" content="​    一直做开发，之前都是使用Tomcat部署，大部分情况都是在windows环境下，现在互联网发展太快，都是需要后台在阿里云等云厂商的服务器下进行部署，第一步就是安装JDK环境 1.查看系统是否安装了jdk； 1rpm -qa | grep jdk  2.下载Linux版本的jdk 下载网站：https:&#x2F;&#x2F;www.oracle.com&#x2F;java&#x2F;technologies&#x2F;javase-jd">
+<meta property="article:published_time" content="2020-03-12T14:15:43.000Z">
+<meta property="article:modified_time" content="2020-03-12T14:23:37.767Z">
 <meta property="article:author" content="Jammy">
+<meta property="article:tag" content="DevOps">
 <meta name="twitter:card" content="summary">
 
     
@@ -40,9 +40,9 @@
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
-      <body>
-        <header>
-          
+  <body>
+    <header>
+      
 <div>
 		
 			<div id="imglogo">
@@ -81,33 +81,75 @@
 				</ul>
 			</nav>			
 </div>
-        </header>
-        <div id="container">
-          <div id="main" class="page" itemscope itemprop="blogPost">
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
   
 	<article itemprop="articleBody"> 
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/about/me.html" title="About Me" itemprop="url">About Me</a>
+      <a href="/2020/03/12/Linux运维学习-centos7-安装JAVA/" title="Linux运维学习_centos7 安装JAVA" itemprop="url">Linux运维学习_centos7 安装JAVA</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="Jammy" target="_blank" itemprop="author">Jammy</a>
 		
   <p class="article-time">
-    <time datetime="2019-12-27T16:27:53.000Z" itemprop="datePublished"> Published 2019-12-28</time>
+    <time datetime="2020-03-12T14:15:43.000Z" itemprop="datePublished"> Published 2020-03-12</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
-		<p>我是大学生</p>
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			
+		
+		</div>
+		
+		<p>​    一直做开发，之前都是使用Tomcat部署，大部分情况都是在windows环境下，现在互联网发展太快，都是需要后台在阿里云等云厂商的服务器下进行部署，第一步就是安装JDK环境</p>
+<p>1.查看系统是否安装了jdk；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep jdk</span><br></pre></td></tr></table></figure>
+
+<p>2.下载Linux版本的jdk</p>
+<p>下载网站：<a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</a></p>
+<p>文件名如：jdk-8u181-linux-x64.tar.gz</p>
+<p>3.上传到Linux 服务器目录上，可以使用Xftp，将本地下载好的文件上传到某文件目录下；</p>
+<p>4.进入该目录下，解压安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u181-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>分别是四个参数<br>x : 从 tar 包中把文件提取出来<br>z : 表示 tar 包是被 gzip 压缩过的，所以解压时需要用 gunzip 解压<br>v : 显示详细信息<br>f  xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz</p>
+<p>解压后可以查看解压文件</p>
+<p>5.移动到某个文件夹下（非必须项）</p>
+<p>移动到/usr/java目录下，需要提前先创建java目录</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/java</span><br><span class="line">mv jdk1.8.0_181/ /usr/java/jdk1.8.0_181/</span><br></pre></td></tr></table></figure>
+
+<p>6.配置环境变量</p>
+<p>打开配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  /etc/profile #固定的目录，不需要改</span><br></pre></td></tr></table></figure>
+
+<p>在最后一行插入(插入命令，单击i)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export JRE_HOME=/usr/java/jdk1.8.0_181/jre</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib.rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure>
+
+<p>编辑完成之后需要按ESC退出编辑，然后输入:wq保存退出。</p>
+<p>重新加载配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+<p>7.测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
   
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
 
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/DevOps/">DevOps</a>
+  </div>
 
 </div>
 
@@ -115,7 +157,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="http://dazhihuyu.xjp89.top/about/me.html" data-title="About Me | 万安" data-tsina="1711354615" class="share clearfix">
+	  <div data-url="http://dazhihuyu.xjp89.top/2020/03/12/Linux%E8%BF%90%E7%BB%B4%E5%AD%A6%E4%B9%A0-centos7-%E5%AE%89%E8%A3%85JAVA/" data-title="Linux运维学习_centos7 安装JAVA | 万安" data-tsina="1711354615" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -126,6 +168,27 @@
    	       
 	</article>
 	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2020/03/12/SpringBoot新手入门（1）部署外部Tomcat配置/" title="SpringBoot新手入门（1）部署外部Tomcat配置">
+  <strong>上一篇：</strong><br/>
+  <span>
+  SpringBoot新手入门（1）部署外部Tomcat配置</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2020/01/02/Spring-Boot-启动配置总结/"  title="Spring Boot 启动配置总结">
+ <strong>下一篇：</strong><br/> 
+ <span>Spring Boot 启动配置总结
+</span>
+</a>
+</div>
+
+</nav>
+
 	
 
 
@@ -133,8 +196,87 @@
 <div id="SOHUCS" style="width: 95%;"></div>
 
 </div>  
-        </div>
-        <footer><div id="footer" >
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ 
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/Spring-Boot/" title="Spring Boot">Spring Boot<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/Java/" title="Java">Java<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/DevOps/" title="DevOps">DevOps<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+  <div class="tagcloudlist">
+    <p class="asidetitle">Tag Cloud</p>
+    <div class="tagcloudlist clearfix">
+       <a href="/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/tags/Java/" style="font-size: 20px;">Java</a> <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a>
+    </div>
+  </div>
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1711354615&verifier=b3593ceb&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
 	
 	<div class="line">
 		<span></span>
@@ -173,7 +315,7 @@
 		</p>
 </div>
 </footer>
-        <script src="/js/jquery-2.0.3.min.js"></script>
+    <script src="/js/jquery-2.0.3.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
 <script src="/js/gallery.js"></script>
 <script src="/js/jquery.qrcode-0.12.0.min.js"></script>
@@ -217,8 +359,36 @@ $(document).ready(function(){
       m.removeClass('moveMain');
       a.css('display', 'block').removeClass('fadeOut');
       o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
         
     }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
   });
 });
 </script>
@@ -354,6 +524,5 @@ var _hmt = _hmt || [];
 
 <!-- Tiny_search End -->
 
-      </body>
-     </html>
-     
+  </body>
+</html>

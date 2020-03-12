@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://dazhihuyu.xjp89.top/"/>
-  <updated>2019-12-29T14:19:05.417Z</updated>
+  <updated>2020-03-12T14:22:26.676Z</updated>
   <id>http://dazhihuyu.xjp89.top/</id>
   
   <author>
@@ -15,6 +15,86 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>SpringBoot新手入门（1）部署外部Tomcat配置</title>
+    <link href="http://dazhihuyu.xjp89.top/2020/03/12/SpringBoot%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%881%EF%BC%89%E9%83%A8%E7%BD%B2%E5%A4%96%E9%83%A8Tomcat%E9%85%8D%E7%BD%AE/"/>
+    <id>http://dazhihuyu.xjp89.top/2020/03/12/SpringBoot%E6%96%B0%E6%89%8B%E5%85%A5%E9%97%A8%EF%BC%881%EF%BC%89%E9%83%A8%E7%BD%B2%E5%A4%96%E9%83%A8Tomcat%E9%85%8D%E7%BD%AE/</id>
+    <published>2020-03-12T14:20:01.000Z</published>
+    <updated>2020-03-12T14:22:26.676Z</updated>
+    
+    <content type="html"><![CDATA[<p>在对Spring Boot进行开发的过程中，有的时候需要打成war进行外部的tomcat部署，经常会发现部署之后无法访问，或者报404的错误。</p><p>只需要在SpringBootApplication类同级新建一个ServletInitialize类继承与SpringBootServletInitialize，并配置入口启动类；</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//tomcat 部署必须</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ServletInitializer</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line"><span class="comment">// 配置运行入口类</span></span><br><span class="line"><span class="keyword">return</span> builder.sources(Application<span class="class">.<span class="keyword">class</span>)</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>ps: 这里也可以都放在<strong>Application</strong> 类中，主要继承了 SpringBootServletInitializer，重写方法即可</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在对Spring Boot进行开发的过程中，有的时候需要打成war进行外部的tomcat部署，经常会发现部署之后无法访问，或者报404的错误。&lt;/p&gt;
+&lt;p&gt;只需要在SpringBootApplication类同级新建一个ServletInitialize类继承与Sprin
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Spring Boot" scheme="http://dazhihuyu.xjp89.top/tags/Spring-Boot/"/>
+    
+      <category term="Java" scheme="http://dazhihuyu.xjp89.top/tags/Java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux运维学习_centos7 安装JAVA</title>
+    <link href="http://dazhihuyu.xjp89.top/2020/03/12/Linux%E8%BF%90%E7%BB%B4%E5%AD%A6%E4%B9%A0-centos7-%E5%AE%89%E8%A3%85JAVA/"/>
+    <id>http://dazhihuyu.xjp89.top/2020/03/12/Linux%E8%BF%90%E7%BB%B4%E5%AD%A6%E4%B9%A0-centos7-%E5%AE%89%E8%A3%85JAVA/</id>
+    <published>2020-03-12T14:15:43.000Z</published>
+    <updated>2020-03-12T14:23:37.767Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    一直做开发，之前都是使用Tomcat部署，大部分情况都是在windows环境下，现在互联网发展太快，都是需要后台在阿里云等云厂商的服务器下进行部署，第一步就是安装JDK环境</p><p>1.查看系统是否安装了jdk；</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep jdk</span><br></pre></td></tr></table></figure><p>2.下载Linux版本的jdk</p><p>下载网站：<a href="https://www.oracle.com/java/technologies/javase-jdk8-downloads.html" target="_blank" rel="noopener">https://www.oracle.com/java/technologies/javase-jdk8-downloads.html</a></p><p>文件名如：jdk-8u181-linux-x64.tar.gz</p><p>3.上传到Linux 服务器目录上，可以使用Xftp，将本地下载好的文件上传到某文件目录下；</p><p>4.进入该目录下，解压安装</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u181-linux-x64.tar.gz</span><br></pre></td></tr></table></figure><p>分别是四个参数<br>x : 从 tar 包中把文件提取出来<br>z : 表示 tar 包是被 gzip 压缩过的，所以解压时需要用 gunzip 解压<br>v : 显示详细信息<br>f  xxx.tar.gz :  指定被处理的文件是 xxx.tar.gz</p><p>解压后可以查看解压文件</p><p>5.移动到某个文件夹下（非必须项）</p><p>移动到/usr/java目录下，需要提前先创建java目录</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/java</span><br><span class="line">mv jdk1.8.0_181/ /usr/java/jdk1.8.0_181/</span><br></pre></td></tr></table></figure><p>6.配置环境变量</p><p>打开配置文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi  /etc/profile #固定的目录，不需要改</span><br></pre></td></tr></table></figure><p>在最后一行插入(插入命令，单击i)</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk1.8.0_181</span><br><span class="line">export JRE_HOME=/usr/java/jdk1.8.0_181/jre</span><br><span class="line">export CLASSPATH=.:$JAVA_HOME/jre/lib.rt.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br><span class="line">export PATH=$PATH:$JAVA_HOME/bin</span><br></pre></td></tr></table></figure><p>编辑完成之后需要按ESC退出编辑，然后输入:wq保存退出。</p><p>重新加载配置文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure><p>7.测试</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;​    一直做开发，之前都是使用Tomcat部署，大部分情况都是在windows环境下，现在互联网发展太快，都是需要后台在阿里云等云厂商的服务器下进行部署，第一步就是安装JDK环境&lt;/p&gt;
+&lt;p&gt;1.查看系统是否安装了jdk；&lt;/p&gt;
+&lt;figure class=&quot;hig
+      
+    
+    </summary>
+    
+    
+    
+      <category term="DevOps" scheme="http://dazhihuyu.xjp89.top/tags/DevOps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spring Boot 启动配置总结</title>
+    <link href="http://dazhihuyu.xjp89.top/2020/01/02/Spring-Boot-%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93/"/>
+    <id>http://dazhihuyu.xjp89.top/2020/01/02/Spring-Boot-%E5%90%AF%E5%8A%A8%E9%85%8D%E7%BD%AE%E6%80%BB%E7%BB%93/</id>
+    <published>2020-01-02T10:09:06.000Z</published>
+    <updated>2020-01-02T10:32:07.155Z</updated>
+    
+    <content type="html"><![CDATA[<p> Spring Boot的基本使用教程中，经常会有一些细节问题值得我们注意，今天主要是总结一下使用过程中的一些小细节。</p><h1 id="1、pom-文件"><a href="#1、pom-文件" class="headerlink" title="1、pom 文件"></a>1、pom 文件</h1><p>maven的搭建就不说了，如果需要把resources 目录下的资源加进来需要配置如下：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>$&#123;basedir&#125;/src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">filtering</span>&gt;</span>true<span class="tag">&lt;/<span class="name">filtering</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/application*.yml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/application*.properties<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/application*.yaml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">directory</span>&gt;</span>$&#123;basedir&#125;/src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">excludes</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>**/application*.yml<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>**/application*.yaml<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclude</span>&gt;</span>**/application*.properties<span class="tag">&lt;/<span class="name">exclude</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">excludes</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure><p>spring-boot-starter-parent 作用：</p><p>1）jar包版本管理；</p><p>2）配置文件的过滤；</p><p>3）常用插件的管理；</p><p>最核心的功能是管理了SpringBoot所依赖的所有jar包，它里面有很多的插件，如果不用这个需要自己配置很多内容；</p><h1 id="2、-SpringBootApplication"><a href="#2、-SpringBootApplication" class="headerlink" title="2、@SpringBootApplication"></a>2、<code>@SpringBootApplication</code></h1><p>Spring提供了三种方式的配置：1）xml文件配置；2）annotation配置；3）<code>JAVA类配置</code>；<code>Spring4</code> 之后就推崇使用类配置的方式。<code>@SpringBootApplication</code>的底层是用<code>@SpringBootConfiguration</code>进行注解，而<code>@SpringBootConfiguration</code>是被<code>@Configuration</code>注解。</p><p><code>SpringBootConfiguration</code>的注解的作用：</p><p>1）标志该类为一个配置类；</p><p>2）指定扫描的包，便于Spring IOC 容器对其进行实例和生命周期管理；</p><p>3）自动配置，通过引入jar包，猜测用户的意图进行自动化配置。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; Spring Boot的基本使用教程中，经常会有一些细节问题值得我们注意，今天主要是总结一下使用过程中的一些小细节。&lt;/p&gt;
+&lt;h1 id=&quot;1、pom-文件&quot;&gt;&lt;a href=&quot;#1、pom-文件&quot; class=&quot;headerlink&quot; title=&quot;1、pom 文件&quot;
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Spring Boot" scheme="http://dazhihuyu.xjp89.top/tags/Spring-Boot/"/>
+    
+      <category term="Java" scheme="http://dazhihuyu.xjp89.top/tags/Java/"/>
+    
+  </entry>
   
   <entry>
     <title>博客建立的初衷</title>
